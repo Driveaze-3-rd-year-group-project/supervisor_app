@@ -1,101 +1,167 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
-class CombinedProfileSettingsPage extends StatefulWidget {
+class ProfilePage extends StatefulWidget {
   @override
-  _CombinedProfileSettingsPageState createState() => _CombinedProfileSettingsPageState();
+  _ProfilePageState createState() => _ProfilePageState();
 }
 
-class _CombinedProfileSettingsPageState extends State<CombinedProfileSettingsPage> {
-  bool _darkMode = false;
+class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Profile & Settings'),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            // Profile Section
-            SizedBox(height: 20),
-            CircleAvatar(
-              radius: 50,
-              backgroundImage: AssetImage('assets/user.png'),
-            ),
-            SizedBox(height: 10),
-            Text(
-              'Company Name',
-              // style: Theme.of(context).textTheme.headline6,
-            ),
-            SizedBox(height: 20),
-            Card(
-              margin: EdgeInsets.symmetric(horizontal: 20),
-              child: Padding(
-                padding: EdgeInsets.all(16),
-                child: Column(
-                  children: [
-                    ListTile(
-                      leading: Icon(Icons.email, color: Colors.blue),
-                      title: Text('Email'),
-                      subtitle: Text('customer@demo.com'),
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.phone, color: Colors.blue),
-                      title: Text('Phone'),
-                      subtitle: Text('+201006681802'),
-                    ),
-                  ],
+      body: Stack(
+        children: [
+          Column(
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.height * 0.23,
+                color: Color(0xFF01103B),
+              ),
+              Expanded(
+                child: Container(
+                  // color: Colors.white,
                 ),
               ),
-            ),
-            SizedBox(height: 20),
-
-            // Settings Section
-            Card(
-              margin: EdgeInsets.all(8.0),
+            ],
+          ),
+          SafeArea(
+            child: Padding(
+              padding: EdgeInsets.all(16),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ListTile(
-                    leading: Icon(Icons.language),
-                    title: Text('LANGUAGE'),
-                    trailing: Icon(Icons.chevron_right),
-                    onTap: () {
-                      // Open language settings
-                    },
+                  // SizedBox(height: 40),
+                  Text(
+                    'Profile',
+                    style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                    // fontWeight: FontWeight.bold,
+                    ),
                   ),
-                  SwitchListTile(
-                    secondary: Icon(Icons.nightlight_round),
-                    title: Text('DARKMODE'),
-                    value: _darkMode,
-                    onChanged: (bool value) {
-                      setState(() {
-                        _darkMode = value;
-                      });
-                    },
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.security),
-                    title: Text('privacyPolicy'),
-                    trailing: Icon(Icons.chevron_right),
-                    onTap: () {
-                      // Open privacy policy
-                    },
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.exit_to_app),
-                    title: Text('Logout'),
-                    trailing: Icon(Icons.chevron_right),
-                    onTap: () {
-                      // Perform logout
-                    },
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+                  ProfileCard(),
+                  SizedBox(height: 20),
+
+                  Card(
+                    color: Colors.grey[50],
+                    // color: Colors.white,
+                    margin: EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        ListTile(
+                          leading: Icon(MaterialCommunityIcons.shield_account_outline),
+                          title: Text('Change Password'),
+                          trailing: Icon(Icons.chevron_right),
+                          onTap: () {
+                            // Open language settings
+                          },
+                        ),
+                        ListTile(
+                          leading: Icon(Octicons.info),
+                          title: Text('About Us'),
+                          trailing: Icon(Icons.chevron_right),
+                          onTap: () {
+                            // Open language settings
+                          },
+                        ),
+                        ListTile(
+                          leading: Icon(Icons.security),
+                          title: Text('Privacy Policy'),
+                          trailing: Icon(Icons.chevron_right),
+                          onTap: () {
+                            // Open privacy policy
+                          },
+                        ),
+                        ListTile(
+                          leading: Icon(Icons.exit_to_app),
+                          title: Text('Logout'),
+                          trailing: Icon(Icons.chevron_right),
+                          onTap: () {
+                            // Perform logout
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ProfileCard extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 4,
+      color: Colors.grey[50],
+      child: Padding(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              children: [
+                CircleAvatar(
+                  radius: 40,
+                  backgroundImage: AssetImage('assets/user.png'),
+                ),
+                SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Bellamy Blake',
+                        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(height: 2),
+                      ElevatedButton.icon(
+                        icon: Icon(
+                          Icons.edit,
+                          size: 18,
+                          color: Color(0xFF01103B),
+                        ),
+                        label: Text(
+                          'Edit',
+                          style: TextStyle(color: Color(0xFF01103B)),
+                        ),
+                        onPressed: () {
+                          // Handle edit button press
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xB4BCC3FF), // Use primary instead of backgroundColor
+                          textStyle: TextStyle(fontSize: 16),
+                          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                          minimumSize: Size(30,20),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                      ),
+
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 16),
+            ListTile(
+              leading: Icon(Icons.email, color: Color(0xFF3F51B5)),
+              title: Text('Email'),
+              subtitle: Text('blakeb@gmail.com'),
+            ),
+            ListTile(
+              leading: Icon(Icons.phone, color: Color(0xFF3F51B5)),
+              title: Text('Phone'),
+              subtitle: Text('+94703452332'),
             ),
           ],
         ),
