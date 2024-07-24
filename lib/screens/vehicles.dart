@@ -64,7 +64,8 @@ class _VehiclesState extends State<Vehicles> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Vehicle List'),
+        backgroundColor: Color(0xFF01103B),
+        title: Text('Vehicle List', style: TextStyle(color: Colors.white),),
       ),
       body: Column(
         children: [

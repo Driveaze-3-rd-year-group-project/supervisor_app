@@ -58,7 +58,7 @@ class NavigationController extends GetxController {
     Dashboard(),
     Vehicles(),
     MyHomePage(),
-    CombinedProfileSettingsPage(),
+    ProfilePage(),
   ];
   void changeIndex(int index) {
     selectedIndex.value = index;

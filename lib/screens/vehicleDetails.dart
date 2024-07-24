@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
-import 'vehicles.dart'; // Import the repair history file
+import 'vehicles.dart';
 
 class VehicleDetailPage extends StatefulWidget {
   final Vehicle vehicle;
@@ -120,7 +120,12 @@ class _VehicleDetailPageState extends State<VehicleDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Update Repairs'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+        backgroundColor: Color(0xFF01103B),
+        title: Text('Update Repairs', style: TextStyle(color: Colors.white),),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
