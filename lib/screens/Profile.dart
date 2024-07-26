@@ -1,5 +1,8 @@
+import 'package:Samarasinghe/screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+
+import 'EditProfile.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -80,7 +83,10 @@ class _ProfilePageState extends State<ProfilePage> {
                           title: Text('Logout'),
                           trailing: Icon(Icons.chevron_right),
                           onTap: () {
-                            // Perform logout
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Login()),
+                            );
                           },
                         ),
                       ],
@@ -134,7 +140,10 @@ class ProfileCard extends StatelessWidget {
                           style: TextStyle(color: Color(0xFF01103B)),
                         ),
                         onPressed: () {
-                          // Handle edit button press
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => EditProfilePage()),
+                          );
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xB4BCC3FF), // Use primary instead of backgroundColor
