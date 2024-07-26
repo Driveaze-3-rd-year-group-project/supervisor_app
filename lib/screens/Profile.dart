@@ -1,3 +1,4 @@
+import 'package:Samarasinghe/screens/ChangePassword.dart';
 import 'package:Samarasinghe/screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
@@ -59,7 +60,10 @@ class _ProfilePageState extends State<ProfilePage> {
                           title: Text('Change Password'),
                           trailing: Icon(Icons.chevron_right),
                           onTap: () {
-                            // Open language settings
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => ChangePasswordScreen()),
+                            );
                           },
                         ),
                         ListTile(
