@@ -7,6 +7,7 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 import 'Dash.dart';
 import 'Profile.dart';
+import 'login.dart';
 
 
 class MainScreen extends StatelessWidget {
@@ -40,9 +41,14 @@ class MainScreen extends StatelessWidget {
                   label: 'Inventory',
                 ),
                 NavigationDestination(
+                  icon: Icon(MaterialIcons.handyman),
+                  label: 'Technician',
+                ),
+                NavigationDestination(
                   icon: Icon(Feather.user),
                   label: 'Profile',
                 ),
+
               ],
             ),
       ),
@@ -58,6 +64,7 @@ class NavigationController extends GetxController {
     Dashboard(),
     Vehicles(),
     MyHomePage(),
+    Login(),
     ProfilePage(),
   ];
   void changeIndex(int index) {
