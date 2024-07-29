@@ -1,3 +1,4 @@
+import 'package:Samarasinghe/screens/Technician.dart';
 import 'package:Samarasinghe/screens/dashboard.dart';
 import 'package:Samarasinghe/screens/home.dart';
 import 'package:Samarasinghe/screens/vehicles.dart';
@@ -64,7 +65,7 @@ class NavigationController extends GetxController {
     Dashboard(),
     Vehicles(),
     MyHomePage(),
-    Login(),
+    TechnicianPage(),
     ProfilePage(),
   ];
   void changeIndex(int index) {
