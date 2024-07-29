@@ -19,7 +19,7 @@ class Vehicles extends StatefulWidget {
 
 class _VehiclesState extends State<Vehicles> {
   final List<Vehicle> vehicles = [
-    Vehicle('Car', 'ABC123', 'John Doe', 'Details about John\'s car'),
+    Vehicle('Car', 'ABC123', 'John Hunter', 'Details about John\'s car'),
     Vehicle('Van', 'XYZ789', 'Jane Smith', 'Details about Jane\'s van'),
   ];
   late List<Vehicle> filteredVehicles;
